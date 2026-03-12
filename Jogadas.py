@@ -6,6 +6,3 @@ class Jogada(Enum):
     PEDRA = 1
     PAPEL = 2
     TESOURA = 3
-
-def jogadas():
-    if ((BOT.choose() == "PEDRA" and Player.chose())):

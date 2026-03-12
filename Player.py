@@ -1,6 +1,8 @@
-class player:
-    def __init__(self,escolha):
-        self.escolha = escolha
+from Jogadas import Jogada
+
+class Player:
+    def __init__(self):
+        self.escolha = None
 
     def chose(self):
         while True:
@@ -12,15 +14,18 @@ class player:
             ----------------------
             """)
 
-            escolha = int(input("Digite sua escolha: "))
+            try:
+                escolha = int(input("Digite sua escolha: "))
+            except ValueError:
+                print("Por favor, digite um número válido!")
+                continue
 
-
-            if escolha == 1:
-                return 1
-            elif escolha == 2:
-                return 2
-            elif escolha == 3:
-                return 3
-            elif escolha == 4:
+            if escolha == 4:
                 print("Obrigado por jogar!!")
-                return False
+                return None
+
+            try:
+                self.escolha = Jogada(escolha)
+                return self.escolha
+            except ValueError:
+                print("Opção inválida, tente novamente!")

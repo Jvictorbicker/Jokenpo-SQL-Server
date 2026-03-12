@@ -1,8 +1,10 @@
 import random
+from Jogadas import Jogada
 
-class bot:
+class Bot:
     def __init__(self):
-        pass
+        self.escolha = None
 
     def choose(self):
-        return random.randint(1,3)
+        self.escolha = Jogada(random.randint(1, 3))
+        return self.escolha
